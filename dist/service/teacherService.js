@@ -43,7 +43,6 @@ exports.teacherRouter.post('/teacher', function (req, res, next) {
 exports.teacherRouter.post('/teacher/updateMarks', function (req, res, next) {
     return __awaiter(this, void 0, void 0, function* () {
         let student = req.body.data;
-        console.log(student);
         storage.update(student, student.user.typeUser + 's');
         res.send(true);
     });

@@ -13,9 +13,8 @@ titleRouter.post('/title', async function (req: Request, res: Response, next: Ne
     let loginObj = allData.find(el => el.user.login === login &&
         el.user.password === password);
     if (typeof loginObj === 'undefined') res.send(false);
-    else
-    {
-        storage.add(loginObj,typeUser+'s_waiting');
+    else {
+        storage.add(loginObj, typeUser + 's_waiting');
         res.send(true);
     }
 });
@@ -25,10 +24,8 @@ titleRouter.post('/register', async function (req: Request, res: Response, next:
     let allData = storage.getAll(obj.user.typeUser + 's');
     let isExistObj = allData.find(el => el.user.login === obj.user.login &&
         el.user.password === obj.user.password);
-    if (typeof isExistObj === 'undefined')
-    {
-        storage.add(obj,obj.user.typeUser + 's_requests');
+    if (typeof isExistObj === 'undefined') {
+        storage.add(obj, obj.user.typeUser + 's_requests');
         res.send(true);
-    }
-    else res.send(false);
+    } else res.send(false);
 });

@@ -6,7 +6,8 @@ const teacher_1 = require("./model/teacher");
 const student_1 = require("./model/student");
 const subject_1 = require("./model/subject");
 class Storage {
-    constructor() { }
+    constructor() {
+    }
     add(obj, fileName) {
         let fs = require('fs');
         let data = fs.readFileSync('src/database/' + fileName, 'utf-8');

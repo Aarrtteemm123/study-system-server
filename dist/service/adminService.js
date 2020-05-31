@@ -31,7 +31,6 @@ exports.adminRouter.get('/admin', function (req, res, next) {
 exports.adminRouter.post('/admin/confirm', function (req, res, next) {
     return __awaiter(this, void 0, void 0, function* () {
         let obj = req.body.data;
-        console.log(obj.user.typeUser);
         let allData = storage.getAll(obj.user.typeUser + 's');
         let isExistObj = allData.find(el => el.user.login === obj.user.login &&
             el.user.password === obj.user.password);
@@ -47,7 +46,6 @@ exports.adminRouter.post('/admin/confirm', function (req, res, next) {
 exports.adminRouter.post('/admin/delete', function (req, res, next) {
     return __awaiter(this, void 0, void 0, function* () {
         let obj = req.body.data;
-        console.log(obj);
         storage.delete(obj, obj.user.typeUser + 's');
         storage.delete(obj, obj.user.typeUser + 's_requests');
         res.send(true);
@@ -62,7 +60,6 @@ exports.adminRouter.post('/admin/deleteAll', function (req, res, next) {
 exports.adminRouter.post('/admin/update', function (req, res, next) {
     return __awaiter(this, void 0, void 0, function* () {
         let obj = req.body.data;
-        console.log(obj);
         storage.update(obj, obj.user.typeUser + 's');
         res.send(true);
     });

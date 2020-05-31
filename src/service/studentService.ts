@@ -7,5 +7,5 @@ let storage = new Storage();
 studentRouter.get('/student', async function (req: Request, res: Response, next: NextFunction) {
     let students = storage.getAll('students_waiting');
     res.send(students[0]);
-    storage.delete(students[0],'students_waiting');
+    storage.delete(students[0], 'students_waiting');
 });
